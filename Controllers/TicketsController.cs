@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using WEBAPI.Models;
 
 namespace WEBAPI.Controllers{
     [ApiController]
@@ -20,13 +21,13 @@ namespace WEBAPI.Controllers{
         }
 
         [HttpPost]
-        public IActionResult Post(){
-            return Ok("Creating a ticket");
+        public IActionResult Post([FromBody] Ticket ticket){
+            return Ok(ticket);
         }
 
         [HttpPut()]
-        public IActionResult Put(){
-            return Ok("Updating a ticket");
+        public IActionResult Put([FromBody] Ticket ticket){
+            return Ok(ticket);
         }
         [HttpDelete("{id}")]
         public IActionResult Delete(int id){
